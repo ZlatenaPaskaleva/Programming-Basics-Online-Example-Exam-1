@@ -1,0 +1,33 @@
+int targetM = int.Parse(Console.ReadLine());
+int jumpHight = int.Parse(Console.ReadLine());
+int hight = targetM - 30;
+int jumpsCount = 0;
+int failedJumpsCount = 0;
+
+while (true)
+{
+	if (jumpHight > hight)
+	{
+		jumpsCount++;
+        if (hight >= targetM)
+        {
+			Console.WriteLine($"Tihomir succeeded, he jumped over {hight}cm after {jumpsCount} jumps.");
+			break;
+        }
+        hight += 5;
+		failedJumpsCount = 0;
+		
+	}
+	else
+	{
+		failedJumpsCount++;
+		jumpsCount++;
+
+        if (failedJumpsCount >= 3)
+		{
+			Console.WriteLine($"Tihomir failed at {hight}cm after {jumpsCount} jumps.");
+			break;
+        }
+	}
+    jumpHight = int.Parse(Console.ReadLine());
+}
