@@ -1,0 +1,18 @@
+double pricePerRacket = double.Parse(Console.ReadLine());
+int numberOfRackets = int.Parse(Console.ReadLine());
+int numberOfShoes = int.Parse(Console.ReadLine());
+
+double totalRacketPrice = pricePerRacket * numberOfRackets;
+
+double totalShoesPrice = (pricePerRacket / 6) * numberOfShoes;
+
+double equipmentPrice = 0.20 * (totalRacketPrice + totalShoesPrice);
+
+double totalPrice = totalRacketPrice + totalShoesPrice + equipmentPrice;
+
+double djokovicPayment = Math.Floor(totalPrice / 8);
+
+double sponsorsPayment = Math.Ceiling(totalPrice * 7 / 8); 
+
+Console.WriteLine($"Price to be paid by Djokovic {djokovicPayment}");
+Console.WriteLine($"Price to be paid by sponsors {sponsorsPayment}");
