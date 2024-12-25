@@ -1,0 +1,47 @@
+string playerName = Console.ReadLine();
+
+int points = 301;
+int shotsCount = 0;
+int wrongShots = 0;
+
+while (points > 0)
+{
+    string sector = Console.ReadLine();
+    if (sector == "Retire")
+    {
+        Console.WriteLine($"{playerName} retired after {wrongShots} unsuccessful shots.");
+        break;
+    }
+
+    int score = int.Parse(Console.ReadLine());
+    shotsCount++;
+
+    if (sector == "Single")
+    {
+        score = score;
+    }
+    else if (sector == "Double")
+    {
+        score *= 2;
+    }
+    else if (sector == "Triple")
+    {
+        score *= 3;
+    }
+    if (score <= points)
+    {
+        points -= score;
+    }
+    else
+    {
+        shotsCount--;
+        wrongShots++;
+        continue;
+    }
+
+    if (points == 0)
+    {
+        Console.WriteLine($"{playerName} won the leg with {shotsCount} shots.");
+        break;
+    }
+}
