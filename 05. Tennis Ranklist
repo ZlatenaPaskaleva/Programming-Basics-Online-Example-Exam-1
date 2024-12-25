@@ -1,0 +1,28 @@
+int competitions = int.Parse(Console.ReadLine());
+int startingPoints = int.Parse(Console.ReadLine());
+int finalPoints = 0;
+int wonCompetitions = 0;
+
+for (int i = 0; i <= competitions; i++)
+{
+    string ranks = Console.ReadLine();
+	if (ranks == "W")
+	{
+		finalPoints += 2000;
+		wonCompetitions++;
+
+    }
+	else if (ranks == "F")
+	{
+		finalPoints += 1200;
+	}
+	else if (ranks == "SF")
+	{
+		finalPoints += 720;
+	}
+}
+int avgPoints = finalPoints / competitions;
+double percentWin = (double)wonCompetitions / competitions * 100;
+Console.WriteLine($"Final points: {finalPoints + startingPoints}");
+Console.WriteLine($"Average points: {avgPoints}");
+Console.WriteLine($"{percentWin:f2}%");
