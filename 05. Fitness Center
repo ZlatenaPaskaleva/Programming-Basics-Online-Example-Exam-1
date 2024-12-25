@@ -1,0 +1,47 @@
+int numOfppl = int.Parse(Console.ReadLine());
+int backTrainig = 0;
+int chestTraining = 0;
+int legsTraining = 0;
+int absTraining = 0;
+int proteinShakeOrders = 0;
+int proteinBarOrders = 0;
+
+for (int i = 0; i <= numOfppl; i++)
+{
+    string activity = Console.ReadLine();
+	if (activity == "Back")
+	{
+		backTrainig++;
+	}
+	else if (activity == "Chest")
+	{
+		chestTraining++;
+	}
+	else if (activity == "Legs")
+	{
+		legsTraining++;
+	}
+	else if (activity == "Abs")
+	{
+		absTraining++;
+	}
+	else if (activity == "Protein shake")
+	{
+		proteinShakeOrders++;
+	}
+	else if (activity == "Protein bar")
+	{
+		proteinBarOrders++;
+	}
+
+}
+double workoutPercentage = (double)(backTrainig + chestTraining + legsTraining + absTraining) / numOfppl * 100;
+double proteinPercentage = (double)(proteinShakeOrders + proteinBarOrders) / numOfppl * 100;
+Console.WriteLine($"{backTrainig} - back");
+Console.WriteLine($"{chestTraining} - chest");
+Console.WriteLine($"{legsTraining} - legs");
+Console.WriteLine($"{absTraining} - abs");
+Console.WriteLine($"{proteinShakeOrders} - protein shake");
+Console.WriteLine($"{proteinBarOrders} - protein bar");
+Console.WriteLine($"{workoutPercentage:f2}% - work out");
+Console.WriteLine($"{proteinPercentage:f2}% - protein");
