@@ -1,0 +1,41 @@
+string tournament = Console.ReadLine();
+
+int wins = 0;
+int lost = 0;
+int tournamentsCount = 0;
+
+while (true)
+{
+	if (tournament == "End of tournaments")
+	{
+		break;
+	}
+	int numberOfGames = int.Parse(Console.ReadLine());
+	tournamentsCount += numberOfGames;
+
+    for (int i = 1; i <= numberOfGames; i++)
+	{
+		int desiTeamPoints = int.Parse(Console.ReadLine());
+		int secondTeamPoints = int.Parse(Console.ReadLine());
+		if (desiTeamPoints > secondTeamPoints)
+		{
+			Console.WriteLine($"Game {i} of tournament {tournament}: win with {desiTeamPoints - secondTeamPoints} points.");
+			wins++;
+
+        }
+		else
+		{
+			Console.WriteLine($"Game {i} of tournament {tournament}: lost with {secondTeamPoints - desiTeamPoints} points.");
+			lost++;
+
+        }
+	}
+    tournament = Console.ReadLine();
+}
+double winPercent = (double)wins / tournamentsCount * 100;
+double lostPercent = (double)lost / tournamentsCount * 100;
+if (tournament == "End of tournaments")
+{
+	Console.WriteLine($"{winPercent:f2}% matches win");
+	Console.WriteLine($"{lostPercent:f2}% matches lost");
+}
