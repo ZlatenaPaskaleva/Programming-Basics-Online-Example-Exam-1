@@ -1,0 +1,10 @@
+double yearlyFee = double.Parse(Console.ReadLine());
+
+double basketballShoesPrice = yearlyFee * 0.60;
+double basketballUniformPrice = basketballShoesPrice * 0.80;
+double basketballBallPrice = basketballUniformPrice / 4;
+double basketballAccessoriesPrice = basketballBallPrice / 5;
+
+double totalCost = yearlyFee + basketballShoesPrice + basketballUniformPrice + basketballBallPrice + basketballAccessoriesPrice;
+
+Console.WriteLine($"{totalCost:F2}");
