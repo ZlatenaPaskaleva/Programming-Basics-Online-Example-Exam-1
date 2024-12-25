@@ -1,0 +1,18 @@
+int minControl = int.Parse(Console.ReadLine());
+int sec = int.Parse(Console.ReadLine());
+double meters = double.Parse(Console.ReadLine());
+int secPerHundredMeters = int.Parse(Console.ReadLine());
+
+int controlInSec = minControl * 60 + sec;
+double slowing = meters / 120;
+
+double totalTime = ((meters / 100) * secPerHundredMeters) - ((double)slowing * 2.5);
+if (totalTime <= controlInSec)
+{
+    Console.WriteLine("Marin Bangiev won an Olympic quota!");
+    Console.WriteLine($"His time is {totalTime:f3}.");
+}
+else
+{
+    Console.WriteLine($"No, Marin failed! He was {totalTime - controlInSec:f3} second slower.");
+}
