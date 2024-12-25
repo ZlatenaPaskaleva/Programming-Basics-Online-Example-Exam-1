@@ -1,0 +1,52 @@
+string firstPlayer = Console.ReadLine();
+string secondPlayer = Console.ReadLine();
+string command = Console.ReadLine();
+int firstPoints = 0;
+int secondPoints = 0;
+
+while (true)
+{
+	if (command == "End of game")
+	{
+		break;
+	}
+	else
+	{
+		int firstCard = int.Parse(command);
+		int secondCard = int.Parse(Console.ReadLine());
+		if (firstCard > secondCard) 
+		{
+			firstPoints += firstCard - secondCard;
+
+        }
+		else if (secondCard > firstCard)
+		{
+			secondPoints += secondCard - firstCard;
+		}
+		else if (firstCard == secondCard)
+		{
+			int firstFinalCard = int.Parse(Console.ReadLine());
+			int secondFinalCard = int.Parse(Console.ReadLine());
+			if (firstFinalCard > secondFinalCard)
+			{
+                Console.WriteLine("Number wars!");
+                Console.WriteLine($"{firstPlayer} is winner with {firstPoints} points");
+			}
+			else
+			{
+                Console.WriteLine("Number wars!");
+                Console.WriteLine($"{secondPlayer} is winner with {secondPoints} points");
+
+            }
+			break;
+
+		}
+
+	}
+    command = Console.ReadLine();
+}
+if (command == "End of game")
+{
+	Console.WriteLine($"{firstPlayer} has {firstPoints} points");
+	Console.WriteLine($"{secondPlayer} has {secondPoints} points");
+}
